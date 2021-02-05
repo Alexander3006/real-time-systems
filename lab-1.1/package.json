@@ -10,7 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.21",
+    "blessed-contrib": "^4.8.21"
+  },
+  "devDependencies": {
     "prettier": "^2.2.1"
   }
 }
