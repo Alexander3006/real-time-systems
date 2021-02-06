@@ -6,10 +6,10 @@ const Screen = require('./chart-renderer');
 
 const chartStyle = {line: 'red', text: 'blue', baseline: 'black'};
 const logStyle = {fg: 'red', label: 'Calculations'};
-const params = {minY: -1, maxY: 1, numYLabels: 20};
+const params = {minY: -4, maxY: 4, numYLabels: 10};
 
 const genarateSignalCase = () => {
-  const signalHarmonics = 6;
+  const signalHarmonics = 8;
   const frequency = 1200;
   const disRepetitions = 1024;
 
@@ -18,15 +18,15 @@ const genarateSignalCase = () => {
 };
 
 const complexityCase = (itr) => {
-  const signalHarmonics = 2;
+  let signalHarmonics = 6;
   const frequency = 1200;
-  let disRepetitions = 2;
+  let disRepetitions = 1;
 
   const points = {
     x: [],
     y: [],
     setPoint(x, y) {
-      this.x.push(x);
+      this.x.push(x + '');
       this.y.push(y);
       return this;
     },
@@ -39,18 +39,11 @@ const complexityCase = (itr) => {
     const execTime = endTime - startTime;
     points.setPoint(disRepetitions, execTime);
     disRepetitions *= 2;
-    i++;
   }
   return points;
 };
 
-const statisticsCase = (sig) => {
-  const signalHarmonics = 6;
-  const frequency = 1200;
-  const disRepetitions = 1024;
-
-  const signal =
-    sig ?? generateSignal(signalHarmonics, frequency, disRepetitions);
+const statisticsCase = (signal) => {
   const data = signal.y;
   const expectation = statistics.expectation(data);
   const dispersion = statistics.dispersion(expectation, data);
@@ -62,7 +55,7 @@ const statisticsCase = (sig) => {
 };
 
 const signal = genarateSignalCase();
-const complexity = complexityCase(40);
+const complexity = complexityCase(22);
 const statCalc = statisticsCase(signal);
 
 const screen = new Screen(3)
