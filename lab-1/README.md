@@ -1,6 +1,4 @@
-# Lab 1.1
+# Lab 1
 
-```
-    npm install
-    npm start
-```
+1.1 - index.js
+1.2 - index-corr.js
