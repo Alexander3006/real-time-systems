@@ -9,9 +9,9 @@ const logStyle = {fg: 'red', label: 'Calculations'};
 const params = {minY: -4, maxY: 4, numYLabels: 10};
 
 const genarateSignalCase = () => {
-  const signalHarmonics = 8;
+  const signalHarmonics = 6;
   const frequency = 1200;
-  const disRepetitions = 1024;
+  const disRepetitions = 128;
 
   const signal = generateSignal(signalHarmonics, frequency, disRepetitions);
   return signal;
@@ -55,7 +55,7 @@ const statisticsCase = (signal) => {
 };
 
 const signal = genarateSignalCase();
-const complexity = complexityCase(22);
+const complexity = complexityCase(20);
 const statCalc = statisticsCase(signal);
 
 const screen = new Screen(3)
