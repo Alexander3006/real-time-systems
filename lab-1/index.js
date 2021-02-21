@@ -1,4 +1,4 @@
-'use strinct';
+'use strict';
 
 const generateSignal = require('./signal-generator');
 const statistics = require('./statistics');
@@ -37,8 +37,10 @@ const complexityCase = (itr) => {
     generateSignal(signalHarmonics, frequency, disRepetitions);
     const endTime = new Date().getTime();
     const execTime = endTime - startTime;
+    // Зберігаємо результат для відображення на графіку (x - кількість дискретних відліків, y - час обрахунку)
     points.setPoint(disRepetitions, execTime);
-    disRepetitions *= 2;
+    // Для вимірювання складності алгоритму, поступово збільшуємо кількість дискретних відліків
+    disRepetitions *= 2; 
   }
   return points;
 };
