@@ -4,7 +4,7 @@ const generateSignal = require('../lab-1/signal-generator');
 const {dft, fft, complexToReal} = require('./math');
 const Screen = require('../lab-1/chart-renderer');
 
-const signalHarmonics = 7;
+const signalHarmonics = 6;
 const frequency = 1200;
 const disRepetitions = 128;
 
