@@ -51,7 +51,7 @@ const fftTime = measure(
 
 const chartStyle = {line: 'red', text: 'blue', baseline: 'black'};
 
-new Screen(2)
+new Screen(5)
   .addChart(chartStyle, signal, 'Random Signal', {minY: -4, maxY: 4})
   .addChart(chartStyle, {x: signal.x, y: dftSpectrum}, 'DFT')
   .addChart(chartStyle, {x: signal.x, y: fftSpectrum}, 'FFT')
