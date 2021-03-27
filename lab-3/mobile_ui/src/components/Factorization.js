@@ -3,7 +3,7 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Input, Button} from 'react-native-elements';
-import {factorizationFermat} from '../core/algorithms';
+import {factorizationFermat} from '../core/factorization';
 
 export const Factorization = () => {
   const [inputNumber, onChangeInputNumber] = React.useState(0);
