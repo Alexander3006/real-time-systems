@@ -29,3 +29,18 @@ export const DiophantineEquation = (equation, populationSize, maxIterations = In
     }
     return population;
 }
+
+const research = (testData, min, max) => {
+    const note = {};
+    for(let i = min; i <= max; i++) {
+        const startTime = new Date().getTime();
+        DiophantineEquation(Array.from(testData), i);
+        const endTime = new Date().getTime();
+        const time = endTime - startTime;
+        console.log(`population: ${i}, time: ${time} ms`);
+        note[i] = time;
+    }
+    return note;
+}
+
+console.table(research([2, 4, 3, 12, 121], 4, 8));
