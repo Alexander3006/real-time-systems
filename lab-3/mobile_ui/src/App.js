@@ -1,9 +1,8 @@
-import { index } from 'mathjs';
 import React, { useState } from 'react';
 import { BottomNavigation } from 'react-native-paper';
 import { Factorization } from './components/Factorization';
 import { Genetics } from './components/Geneticts';
-import {Calculator} from './screens/Calculator';
+import { Perceptron } from './components/Perceptron';
 
 const App = () => {
 
@@ -16,7 +15,7 @@ const App = () => {
     },
     {
       key: 'ai',
-      title: 'AI',
+      title: 'Perceptron',
     },
     {
       key: 'genetics',
@@ -26,7 +25,7 @@ const App = () => {
 
   const renderScene = BottomNavigation.SceneMap({
     fermat: Factorization,
-    ai: Factorization,
+    ai: Perceptron,
     genetics: Genetics,
   });
 
