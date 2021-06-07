@@ -9,14 +9,14 @@ const chartStyle = {line: 'red', text: 'blue', baseline: 'black'};
 
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const run = async (Planner, intensity, quantum, maxComplexity) => {
+const run = async (Planner, intensity, quantum, maxComplexity, cores) => {
   const planner = new Planner();
-  const vm = new VM(planner, quantum);
+  const vm = new VM(planner, quantum, cores);
   vm.start();
   const interval = setInterval(() => {
     const complexity = random(1, maxComplexity);
     const deadline = random(complexity, maxComplexity * 10);
-    vm.addTask(new Task(complexity, deadline));
+    vm.addTask(new Task(complexity, deadline, null, true));
   }, 1000 / intensity);
   await new Promise((res) => {
     setTimeout(() => {
@@ -32,7 +32,7 @@ const intensityTest = async (Planner) => {
   const VMWait = {};
   const avgQueueSize = {};
   for (let i = 10; i <= 50; i += 10) {
-    const vm = await run(Planner, i, 5, 20);
+    const vm = await run(Planner, i, 5, 20, 2);
     const {stats, waitingTime} = vm;
     const tasks = Object.values(stats);
     const avgWaitingTime =

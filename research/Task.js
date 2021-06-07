@@ -1,13 +1,14 @@
 'use strict';
 
 class Task {
-  constructor(complexity, deadline, priority) {
+  constructor(complexity, deadline, priority, blocking) {
     this.complexity = complexity;
     this.process = complexity;
     this.waitingTime = 0;
     this.priority = priority ?? 0;
     this.deadline = deadline ?? Infinity;
     this.executed = false;
+    this.blocking = blocking ?? false;
   }
 
   execute() {
@@ -32,6 +33,10 @@ class Task {
     const {deadline, process, waitingTime} = this;
     const remnant = deadline - process - waitingTime;
     return remnant;
+  }
+
+  canAbort() {
+    return !this.blocking;
   }
 }
 

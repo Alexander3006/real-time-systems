@@ -21,6 +21,10 @@ class BasePlanner {
   return(task) {
     throw new Error();
   }
+
+  size() {
+    return this.heap.length;
+  }
 }
 
 module.exports = BasePlanner;
